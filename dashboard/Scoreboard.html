@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
+	<script src="components/jquery/dist/jquery.min.js"></script>
+
+	<link href="css/commentators.css" rel="stylesheet">
+
+	<link rel="import" href="components/polymer/polymer.html">
+	<link rel="import" href="components/paper-input/paper-input.html">
+	<link rel="import" href="components/paper-dropdown-menu/paper-dropdown-menu.html">
+	<link rel="import" href="components/paper-menu/paper-menu.html">
+	<link rel="import" href="components/paper-item/paper-item.html">
+	<link rel="import" href="components/paper-button/paper-button.html">
+	<link rel="import" href="components/iron-flex-layout/classes/iron-flex-layout.html">
+</head>
+<body>
+<style>
+paper-button.indigo {
+    background-color: #2D4E8A;
+    color: white;
+}
+</style>
+
+<dom-module name="player-info" attributes="player">
+	<template>
+		<paper-input id="ssbm-p{{player}}Tag" label="Player {{player}} Tag" value="{{tag}}"></paper-input>
+		<paper-input class="player-score" id="ssbm-p{{player}}Score" type="number" label="Score" value="{{score}}"></paper-input>
+	</template>
+	<script>
+	window.addEventListener('WebComponentsReady', function(e) {
+		Polymer({
+			is: 'player-info',
+			ready: function() {
+				this.tag = '';
+				this.score = 0;
+			},
+			getTag: function() {
+				return this.tag;
+			},
+			setTag: function(tag) {
+				this.tag = tag;
+			},
+			getScore: function() {
+				return this.score;
+			},
+			setScore: function(score) {
+				this.score = score;
+			},
+		});
+	});
+	</script>
+</dom-module>
+
+<dom-module name="round-name">
+	<template>
+		<paper-input id="ssbm-roundName" label="RoundName" value="{{roundName}}"></paper-input>
+	</template>
+	<script>
+	window.addEventListener('WebComponentsReady', function(e) {
+		Polymer({
+			is: 'round-name',
+			ready: function(){
+				this.roundName = '';
+			},
+			getRoundName: function() {
+				return this.roundName;
+			},
+			setRoundName: function(roundName) {
+				this.roundName = roundName;
+			}
+		});
+	});
+	console.log('uwot', this);
+	</script>
+</dom-module>
+
+<player-info player="1" id="player1"></player-info>
+<player-info player="2" id="player2"></player-info>
+<round-name id="roundName"></round-name>
+
+
+<div class="layout horizontal">
+	<paper-button raised class="indigo flex" id="ssbm-scoreboard-update" style="width: 100%">Update</paper-button>
+</div>
+
+<script src="js/Scoreboard.js"></script>
+
+</body>
+</html>

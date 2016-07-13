@@ -1,0 +1,51 @@
+{
+  "name": "smash-overlay",
+  "version": "0.0.0",
+  "description": "Dynamic broadcast graphics rendered in a browser",
+  "homepage": "",
+  "author": {
+    "name": "SmashHouseOok",
+    "email": "smashhouseook@outlook.com",
+    "url": ""
+  },
+  "files": [
+    "dashboard",
+    "graphics"
+  ],
+  "keywords": [
+    "Smash",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "~0.8.0",
+    "dashboardPanels": [
+      {
+        "name": "Scoreboard",
+        "title": "Scoreboard",
+        "width": 4,
+        "file": "Scoreboard.html",
+        "headerColor": "#9f9bbd"
+      },
+      {
+        "name": "Commentators",
+        "title": "Commentators",
+        "width": 4,
+        "file": "Commentators.html",
+        "headerColor": "#9f9bbd"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "Scoreboard.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "Commentators.html",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git"
+}

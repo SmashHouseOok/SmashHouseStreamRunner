@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
+	<script src="components/jquery/dist/jquery.min.js"></script>
+
+	<link href="css/scoreboard.css" rel="stylesheet">
+
+	<link rel="import" href="components/polymer/polymer.html">
+	<link rel="import" href="components/paper-input/paper-input.html">
+	<link rel="import" href="components/paper-dropdown-menu/paper-dropdown-menu.html">
+	<link rel="import" href="components/paper-menu/paper-menu.html">
+	<link rel="import" href="components/paper-item/paper-item.html">
+	<link rel="import" href="components/paper-button/paper-button.html">
+	<link rel="import" href="components/iron-flex-layout/classes/iron-flex-layout.html">
+</head>
+<body>
+<style>
+paper-button.indigo {
+    background-color: #2D4E8A;
+    color: white;
+}
+</style>
+<dom-module name="commentator-info" attributes="commentator">
+	<template>
+		<paper-input id="ssbm-p{{commentator}}Tag" label="Commentator {{commentator}} Tag" value="{{tag}}"></paper-input>
+        <paper-input id="ssbm-p{{commentator}}Twitter" label="Commentator {{commentator}} Twitter" value="{{twitter}}"></paper-input>
+	</template>
+	<script>
+	window.addEventListener('WebComponentsReady', function(e) {
+		Polymer({
+			is: 'commentator-info',
+			ready: function() {
+				this.tag = '';
+			},
+			getTag: function() {
+				return this.tag;
+			},
+			setTag: function(tag) {
+				this.tag = tag;
+			},
+			getTwitter: function() {
+				return this.twitter;
+			},
+			setTwitter: function(twitter) {
+				this.twitter = twitter;
+			},
+		});
+	});
+
+	</script>
+</dom-module>
+
+<commentator-info commentator="1" id="commentator1"></commentator-info>
+<commentator-info commentator="2" id="commentator2"></commentator-info>
+
+<div class="layout horizontal">
+	<paper-button raised class="indigo flex" id="ssbm-commentators-update" style="width: 100%">Update</paper-button>
+</div>
+
+<script src="js/Commentators.js"></script>
+
+</body>
+</html>

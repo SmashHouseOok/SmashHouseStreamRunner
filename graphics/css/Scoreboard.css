@@ -1,0 +1,86 @@
+.container {
+    z-index: 1;
+    position:absolute;
+	white-space: nowrap;
+}
+
+.board {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: block;
+    z-index: -1;
+}
+
+.tag {
+    font-family: bebasKai;
+    font-size: 23px;
+    color: black;
+}
+
+.score {
+    font-family: bebasKai;
+    font-size: 28px;
+    color: black;
+}
+
+.ctag {
+	font-family: bebasKai;
+    font-size: 25px;
+    color: white;
+}
+
+#round {
+	font-family: bebasKai;
+	position: fixed;
+	top: 11px;
+	left: 373px;
+	width: 128px;
+	height: 29px;
+	font-size: 25px;
+	text-align: center; 
+	white-space: nowrap;
+}
+
+#p1Score{
+	position: fixed; 
+	top: 9px;
+	left: 335px;
+}
+
+#p2Score{
+	position: fixed; 
+	top: 9px;
+	left: 530px;
+}
+
+#player1{
+	position: fixed; 
+	top: 13px;
+	left: 52px;	
+	width: 250px;
+	height: 29px;
+}
+
+#player2{
+	position: fixed;
+	top: 13px;
+	left: 577px;	
+	width: 250px;
+	height: 29px;
+	text-align: right;
+}
+
+#c1tag{
+	position: fixed; 
+	top: 440px;
+	left: 940px;
+	font-size: 32px;
+}
+
+#c2tag{
+	position: fixed; 
+	top: 485px;
+	left: 940px;	
+	font-size: 32px;
+}
