@@ -1,17 +1,20 @@
 'use strict';
 
 $(function () {
-console.log('setting commentary');
+	var commentatorData = nodecg.Replicant('commentatorData');
 
-	nodecg.listenFor('ssbmCommentatorsUpdate', update);
+	commentatorData.on('change', function (newValue) {
+		update(newValue);
+	})
 
 	function update(data) {
-		console.log('recieved commentary', data);
-		var toggle = false;
-		setText(data);
+		if(data !== void 0){
+			setText(data);
+		}
 	}
 
 	function setText(data) {
+		console.log(data);
 		$('#c1tag').text(data.c1Tag);
 		$('#c1twitter').text(data.c1Twitter);
 		$('#c2tag').text(data.c2Tag);
