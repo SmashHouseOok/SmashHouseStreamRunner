@@ -6,9 +6,10 @@
 	<script src="components/jquery/dist/jquery.min.js"></script>
 	<script src="js/Scoreboard.js"></script>
     <script src="js/Commentators.js"></script>
+    <script src="js/animations/scoreboard.js"></script>
 </head>
 <body>
-	<div id="container">
+	<div id="SBtext">
         <div id="player1">
             <div id="p1score" class="score"></div>
             <div id="p1tag" class="tag"></div>
@@ -31,7 +32,7 @@
 	</div>
     </div>
 
-    <img src="img/scoreboard/scoreboard.png" class="board" style="width:1280px;height:720px;">
+    <img src="img/scoreboard/scoreboard.png" onload="animateSbBackground()" id = SB class="board" style="width:1280px;height:720px;">
     <img src="img/overlay/main gameplay layout.png" class="board" style="width:1280px;height:720px;">
 </body>
 </html>
