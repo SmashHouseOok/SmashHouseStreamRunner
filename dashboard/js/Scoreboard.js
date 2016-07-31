@@ -2,10 +2,19 @@
 	'use strict';
 	window.addEventListener('WebComponentsReady', function(e) {
 		var $update = $('#ssbm-scoreboard-update');
-		var $swap = $('#ssbm-players-swap');
+		var playerData = nodecg.Replicant('playerData', updateData());
+
+		playerData.on('change', function(newValue, oldValue) {
+			if(oldValue !== void 0) {
+				console.log(JSON.stringify(oldValue));
+			}
+			if(newValue !== void 0) {
+				console.log(JSON.stringify(newValue));
+			}
+		});
+
 		$update.click(function() {
-			console.log(updateData());
-			nodecg.sendMessage('ssbmScoreboardUpdate', updateData());
+			playerData.value = updateData();
 		});
 
 		function updateData() {

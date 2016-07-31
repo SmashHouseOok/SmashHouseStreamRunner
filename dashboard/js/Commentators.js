@@ -2,9 +2,10 @@
 	'use strict';
 	window.addEventListener('WebComponentsReady', function(e) {
 		var $update = $('#ssbm-commentators-update');
+		var commentatorData = nodecg.Replicant('commentatorData', updateData());
+
 		$update.click(function() {
-			console.log(updateData());
-			nodecg.sendMessage('ssbmCommentatorsUpdate', updateData());
+			playerData.value = updateData();
 		});
 
 		function updateData() {

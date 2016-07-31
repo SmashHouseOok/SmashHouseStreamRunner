@@ -2,11 +2,13 @@
 
 $(function () {
 console.log('setting commentary');
+	var commentatorData = nodecg.Replicant('commentatorData');
 
-	nodecg.listenFor('ssbmCommentatorsUpdate', update);
+	commentatorData.on('change', function (newValue) {
+		update(newValue);
+	})
 
 	function update(data) {
-		console.log('recieved commentary', data);
 		var toggle = false;
 		setText(data);
 	}

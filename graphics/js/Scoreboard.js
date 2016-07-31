@@ -1,18 +1,13 @@
 'use strict';
 
 $(function () {
-console.log('setting score');
-
-	nodecg.listenFor('ssbmScoreboardUpdate', update);
-
-	function update(data) {
-		console.log('recieved scoreboard', data);
-		var toggle = false;
-		updatePlayers(data);
-	}
+	var playerData = nodecg.Replicant('playerData');
+	
+	playerData.on('change', function (newValue) {
+		updatePlayers(newValue);
+	})
 
 	function updatePlayers(data) {
-        console.log('updating players');
 		setText(data);
 	}
 
