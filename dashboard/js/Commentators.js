@@ -5,7 +5,7 @@
 		var commentatorData = nodecg.Replicant('commentatorData', updateData());
 
 		$update.click(function() {
-			playerData.value = updateData();
+			commentatorData.value = updateData();
 		});
 
 		function updateData() {

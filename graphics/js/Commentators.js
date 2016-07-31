@@ -1,7 +1,6 @@
 'use strict';
 
 $(function () {
-console.log('setting commentary');
 	var commentatorData = nodecg.Replicant('commentatorData');
 
 	commentatorData.on('change', function (newValue) {
@@ -9,11 +8,13 @@ console.log('setting commentary');
 	})
 
 	function update(data) {
-		var toggle = false;
-		setText(data);
+		if(data !== void 0){
+			setText(data);
+		}
 	}
 
 	function setText(data) {
+		console.log(data);
 		$('#c1tag').text(data.c1Tag);
 		$('#c1twitter').text(data.c1Twitter);
 		$('#c2tag').text(data.c2Tag);

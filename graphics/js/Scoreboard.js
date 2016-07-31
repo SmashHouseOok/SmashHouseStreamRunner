@@ -2,13 +2,15 @@
 
 $(function () {
 	var playerData = nodecg.Replicant('playerData');
-	
+
 	playerData.on('change', function (newValue) {
 		updatePlayers(newValue);
 	})
 
 	function updatePlayers(data) {
-		setText(data);
+		if(data !== void 0) {
+			setText(data);
+		}
 	}
 
 	function setText(data) {

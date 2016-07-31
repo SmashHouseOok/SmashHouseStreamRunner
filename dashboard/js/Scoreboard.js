@@ -4,14 +4,14 @@
 		var $update = $('#ssbm-scoreboard-update');
 		var playerData = nodecg.Replicant('playerData', updateData());
 
-		playerData.on('change', function(newValue, oldValue) {
-			if(oldValue !== void 0) {
-				console.log(JSON.stringify(oldValue));
-			}
-			if(newValue !== void 0) {
-				console.log(JSON.stringify(newValue));
-			}
-		});
+		// playerData.on('change', function(newValue, oldValue) {
+		// 	if(oldValue !== void 0) {
+		// 		console.log(JSON.stringify(oldValue));
+		// 	}
+		// 	if(newValue !== void 0) {
+		// 		console.log(JSON.stringify(newValue));
+		// 	}
+		// });
 
 		$update.click(function() {
 			playerData.value = updateData();
