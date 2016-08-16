@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
 	<script src="components/jquery/dist/jquery.min.js"></script>
+	<script src="js/characterList.js"></script>
 
 	<link href="css/commentators.css" rel="stylesheet">
 
@@ -27,6 +28,9 @@ paper-button.indigo {
 	<template>
 		<paper-input id="ssbm-p{{player}}Tag" label="Player {{player}} Tag" value="{{tag}}"></paper-input>
 		<paper-input class="player-score" id="ssbm-p{{player}}Score" type="number" label="Score" value="{{score}}"></paper-input>
+		<paper-select id="character{{player}}", value="{{character}}">
+			<option>Choose a character</option>
+		</select>
 	</template>
 	<script>
 	window.addEventListener('WebComponentsReady', function(e) {
@@ -35,6 +39,7 @@ paper-button.indigo {
 			ready: function() {
 				this.tag = '';
 				this.score = 0;
+				setCharacterList(this.player);
 			},
 			getTag: function() {
 				return this.tag;
@@ -48,6 +53,12 @@ paper-button.indigo {
 			setScore: function(score) {
 				this.score = score;
 			},
+			getCharacter: function() {
+				return this.character
+			},
+			setCharacter: function(character) {
+				this.character = character;
+			}
 		});
 	});
 	</script>
@@ -72,7 +83,6 @@ paper-button.indigo {
 			}
 		});
 	});
-	console.log('uwot', this);
 	</script>
 </dom-module>
 
