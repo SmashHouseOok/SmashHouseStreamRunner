@@ -2,26 +2,31 @@
 <head>
     <link href="css/fonts.css" rel="stylesheet"/>
 	<link href="css/Scoreboard.css" rel="stylesheet"/>
+    <link href="css/spritesheets/characterIcons.css" rel="stylesheet"/>
 
 	<script src="components/jquery/dist/jquery.min.js"></script>
 	<script src="js/Scoreboard.js"></script>
     <script src="js/Commentators.js"></script>
     <script src="js/animations/scoreboard.js"></script>
+    <script src="js/spritesheets/charactericons.js"></script>
 </head>
 <body>
 	<div id="SBtext">
         <div id="player1">
             <div id="p1score" class="score"></div>
             <div id="p1tag" class="tag"></div>
+            <canvas id="p1char" width="24" height="24"></canvas> 
+        
         </div>
         <div id="player2">
             <div id="p2score" class="score"></div>
             <div id="p2tag" class="tag"></div>
+            <canvas id="p2char" width="24" height="24"></canvas> 
         </div>
         <div id="round">
             <div id="roundName" class="roundName"></div>
         </div>
-
+    </div>
 	<div id="text">
         <div id="commentator1" class="commentator1">
             <div id="c1tag" class="ctag"></div>
@@ -30,9 +35,7 @@
             <div id="c2tag" class="ctag"></div>
         </div>
 	</div>
-    </div>
-
-    <img src="img/scoreboard/scoreboard.png" onload="animateSbBackground()" id = SB class="board" style="width:1280px;height:720px;">
-    <img src="img/overlay/main gameplay layout.png" class="board" style="width:1280px;height:720px;">
+    <img src="img/spritesheets/characterIcons.png" onload="charIconsSSLoaded()" id = charIconsSS> 
+    <img src="img/scoreboard/scoreboard.png" id = SB class="board" style="width:1280px;height:720px;">
 </body>
 </html>

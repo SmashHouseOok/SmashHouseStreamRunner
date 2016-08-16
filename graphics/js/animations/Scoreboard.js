@@ -8,7 +8,7 @@ $(function () {
     function moveSb() {
         $('#SB').animate({
             top: 0
-        }, 2000, animateText);
+        }, 2000, 'swing', animateText);
     }
 
     function animateSbBackground() {
@@ -21,7 +21,7 @@ $(function () {
         $('#SBtext').css({
             opacity: 0
         })
-        var animationTimeout = window.setTimeout(moveSb, 400);
+        var animationTimeout = window.setTimeout(moveSb, 300);
     }
 
     window.animateSbBackground = animateSbBackground;
