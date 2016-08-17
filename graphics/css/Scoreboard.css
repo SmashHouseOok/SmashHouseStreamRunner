@@ -71,6 +71,35 @@
 	text-align: right;
 }
 
+#p1char {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: block;
+}
+
+#p1TMchar {
+    position: absolute;
+    top: 0px;
+    left: 24px;
+    display: block;
+}
+
+#p2char {
+    position: absolute;
+    top: 0px;
+    left: 48px;
+    display: block;
+}
+
+#p2TMchar {
+    position: absolute;
+    top: 0px;
+    left: 72px;
+    display: block;
+}
+
+
 #c1tag{
 	position: fixed; 
 	top: 440px;

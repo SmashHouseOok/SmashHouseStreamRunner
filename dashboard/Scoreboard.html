@@ -14,6 +14,7 @@
 	<link rel="import" href="components/paper-menu/paper-menu.html">
 	<link rel="import" href="components/paper-item/paper-item.html">
 	<link rel="import" href="components/paper-button/paper-button.html">
+	<link rel="import" href="bower_components/paper-select/dist/paper-select.html">
 	<link rel="import" href="components/iron-flex-layout/classes/iron-flex-layout.html">
 </head>
 <body>
@@ -26,20 +27,54 @@ paper-button.indigo {
 
 <dom-module name="player-info" attributes="player">
 	<template>
-		<paper-input id="ssbm-p{{player}}Tag" label="Player {{player}} Tag" value="{{tag}}"></paper-input>
-		<paper-input class="player-score" id="ssbm-p{{player}}Score" type="number" label="Score" value="{{score}}"></paper-input>
-		<paper-select id="character{{player}}", value="{{character}}">
-			<option>Choose a character</option>
-		</select>
+		<paper-input id="ssbm-p{{player}}Tag" label="Player{{player}} Tag" value="{{tag}}"></paper-input>
+		<paper-input class="player-score" id="ssbm-p{{player}}Score" type="number" label="Player{{player}Score" value="{{score}}"></paper-input>
+		<paper-dropdown-menu id="ssbm-p{{player}}Character" label="P{{player}} Character">
+			<paper-menu class="dropdown-content" class="dropdown-content" attr-for-selected="value" selected="{{character}}">
+				<paper-item value="none"></paper-item>
+					<template is="dom-repeat" items="{{characterList}}">
+						<paper-item value="{{index}}">{{item}}</paper-item>
+					</template>
+			</paper-menu>
+		</paper-dropdown-menu>
+		<paper-dropdown-menu id="ssbm-p{{player}}Colour" label="P{{player}} Colour">
+			<paper-menu class="dropdown-content" class="dropdown-content" attr-for-selected="value" selected="{{colour}}">
+				<template is="dom-repeat" items="{{colourList}}">
+					<paper-item value="{{index}}">{{item}}</paper-item>
+				</template>
+			</paper-menu>
+		</paper-dropdown-menu>
+		<paper-dropdown-menu id="ssbm-p{{player}}TeamMate Character" label="P{{player}} TeamMate Character">
+			<paper-menu class="dropdown-content" class="dropdown-content" attr-for-selected="value" selected="{{tmCharacter}}">
+				<paper-item value="none"></paper-item>
+					<template is="dom-repeat" items="{{characterList}}">
+						<paper-item value="{{index}}">{{item}}</paper-item>
+					</template>
+			</paper-menu>
+		</paper-dropdown-menu>
+		<paper-dropdown-menu id="ssbm-p{{player}}Colour" label="P{{player}} Colour">
+			<paper-menu class="dropdown-content" class="dropdown-content" attr-for-selected="value" selected="{{tmColour}}">
+				<template is="dom-repeat" items="{{colourList}}">
+					<paper-item value="{{index}}">{{item}}</paper-item>
+				</template>
+			</paper-menu>
+		</paper-dropdown-menu>
+
+
 	</template>
 	<script>
 	window.addEventListener('WebComponentsReady', function(e) {
 		Polymer({
 			is: 'player-info',
 			ready: function() {
+				this.characterList = characterList; 
+				this.colourList = [0,1,2,3,4,5];
 				this.tag = '';
 				this.score = 0;
-				setCharacterList(this.player);
+				this.character = '';
+				this.colour = 0;
+				this.tmCharacter = 0;
+				this.tmColour = 5;
 			},
 			getTag: function() {
 				return this.tag;
@@ -54,11 +89,23 @@ paper-button.indigo {
 				this.score = score;
 			},
 			getCharacter: function() {
-				return this.character
+				return this.character;
+			},
+			getTeamMateCharacter: function () {
+				return this.tmCharacter;
 			},
 			setCharacter: function(character) {
 				this.character = character;
-			}
+			},
+			getColour: function() {
+				return this.colour;
+			},
+			getTeamMateColour: function(){
+				return this.tmColour;
+			},
+			setColour: function (colour) {
+				this.colour = colour;
+			},
 		});
 	});
 	</script>

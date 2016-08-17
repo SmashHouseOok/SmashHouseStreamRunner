@@ -14,7 +14,6 @@ $(function () {
 	}
 
 	function setText(data) {
-		console.log(data);
 		$('#c1tag').text(data.c1Tag);
 		$('#c1twitter').text(data.c1Twitter);
 		$('#c2tag').text(data.c2Tag);
