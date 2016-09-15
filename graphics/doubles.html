@@ -1,0 +1,60 @@
+<html>
+<head>
+    <link href="css/fonts.css" rel="stylesheet"/>
+	<link href="css/doubles/Scoreboard.css" rel="stylesheet"/>
+    <link href="css/spritesheets/characterIcons.css" rel="stylesheet"/>
+    <link href="css/spritesheets/flags.css" rel="stylesheet"/>
+
+	<script src="components/jquery/dist/jquery.min.js"></script>
+	<script src="js/Scoreboard.js"></script>
+    <script src="js/Commentators.js"></script>
+    <script src="js/animations/scoreboard.js"></script>
+    <script src="js/spritesheets/charactericons.js"></script>
+    <script src="js/spritesheets/flags.js"></script>
+</head>
+<body>
+	<div id="SBtext">
+        <div id="p1score" class="score"></div>
+        <div id="p2score" class="score"></div>
+        <div id="player1">
+            <div class = "playerBlock">
+                <canvas id="p1char" class = "charIcon" width="24" height="24"></canvas>
+                <div id="p1tag" class="tag"></div>
+                <canvas id="p1flag" class="flag" width="24" height="24"></canvas>
+            </div>
+            <div class = "playerBlock">
+                <canvas id="p1TMchar" class = "charIcon" width="24" height="24"></canvas>
+                <div id="p1TMtag" class = "tag"></div>
+                <canvas id="p1TMflag" class="flag" width="24" height="24"></canvas>
+            </div> 
+        </div>
+        <div id="player2">
+            <div class = "playerBlock">
+                <canvas id="p2char" class = "charIcon" width="24" height="24"></canvas>
+                <div id="p2tag" class="tag"></div>
+                <canvas id="p2flag" class="flag" width="24" height="24"></canvas>
+            </div>
+            <div class = "playerBlock">
+                <canvas id="p2TMchar" class = "charIcon" width="24" height="24"></canvas> 
+                <div id="p2TMtag" class="tag"></div>  
+                <canvas id="p2TMflag" class="flag" width="24" height="24"></canvas>
+            </div>
+        </div>
+        <div id="round">
+            <div id="roundName" class="roundName"></div>
+        </div>
+    </div>
+	<div id="text">
+        <div id="commentator1" class="commentator1">
+            <div id="c1tag" class="ctag"></div>
+        </div>
+        <div id="commentator2" class="commentator2">
+            <div id="c2tag" class="ctag"></div>
+        </div>
+	</div>
+
+    <img src="img/spritesheets/characterIcons.png" onload="charIconsSSLoaded()" id = charIconsSS>
+    <img src="img/spritesheets/flags.png" onload="flagsSSLoaded()" id = flagsSS>
+
+</body>
+</html>

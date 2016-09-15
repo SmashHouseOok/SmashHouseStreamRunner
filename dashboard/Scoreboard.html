@@ -5,8 +5,9 @@
     <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
 	<script src="components/jquery/dist/jquery.min.js"></script>
 	<script src="js/characterList.js"></script>
+	<script src="js/flagList.js"></script>
 
-	<link href="css/commentators.css" rel="stylesheet">
+	<link href="css/scoreboard.css" rel="stylesheet">
 
 	<link rel="import" href="components/polymer/polymer.html">
 	<link rel="import" href="components/paper-input/paper-input.html">
@@ -28,7 +29,7 @@ paper-button.indigo {
 <dom-module name="player-info" attributes="player">
 	<template>
 		<paper-input id="ssbm-p{{player}}Tag" label="Player{{player}} Tag" value="{{tag}}"></paper-input>
-		<paper-input class="player-score" id="ssbm-p{{player}}Score" type="number" label="Player{{player}Score" value="{{score}}"></paper-input>
+		<paper-input class="player-score" id="ssbm-p{{player}}Score" type="number" label="Player{{player}}Score" value="{{score}}"></paper-input>
 		<paper-dropdown-menu id="ssbm-p{{player}}Character" label="P{{player}} Character">
 			<paper-menu class="dropdown-content" class="dropdown-content" attr-for-selected="value" selected="{{character}}">
 				<paper-item value="none"></paper-item>
@@ -44,6 +45,16 @@ paper-button.indigo {
 				</template>
 			</paper-menu>
 		</paper-dropdown-menu>
+		<paper-dropdown-menu id="ssbm-p{{player}}Flag" label="P{{player}} Flag">
+			<paper-menu class="dropdown-content" class="dropdown-content" attr-for-selected="value" selected="{{flag}}">
+				<paper-item value="none"></paper-item>
+					<template is="dom-repeat" items="{{flagList}}">
+						<paper-item value="{{index}}">{{item}}</paper-item>
+					</template>
+			</paper-menu>
+		</paper-dropdown-menu>
+		<div class="teammate-info">
+		<paper-input id="ssbm-p{{player}}TeamMateTag" label="Player{{player}} TeamMateTag" value="{{tmTag}}"></paper-input>
 		<paper-dropdown-menu id="ssbm-p{{player}}TeamMate Character" label="P{{player}} TeamMate Character">
 			<paper-menu class="dropdown-content" class="dropdown-content" attr-for-selected="value" selected="{{tmCharacter}}">
 				<paper-item value="none"></paper-item>
@@ -52,15 +63,22 @@ paper-button.indigo {
 					</template>
 			</paper-menu>
 		</paper-dropdown-menu>
-		<paper-dropdown-menu id="ssbm-p{{player}}Colour" label="P{{player}} Colour">
+		<paper-dropdown-menu id="ssbm-p{{player}}TeamMateColour" label="P{{player}} TeamMateColour">
 			<paper-menu class="dropdown-content" class="dropdown-content" attr-for-selected="value" selected="{{tmColour}}">
 				<template is="dom-repeat" items="{{colourList}}">
 					<paper-item value="{{index}}">{{item}}</paper-item>
 				</template>
 			</paper-menu>
 		</paper-dropdown-menu>
-
-
+		<paper-dropdown-menu id="ssbm-p{{player}}TeamMateFlag" label="P{{player}} TeamMateFlag">
+			<paper-menu class="dropdown-content" class="dropdown-content" attr-for-selected="value" selected="{{tmFlag}}">
+				<paper-item value="none"></paper-item>
+					<template is="dom-repeat" items="{{flagList}}">
+						<paper-item value="{{index}}">{{item}}</paper-item>
+					</template>
+			</paper-menu>
+		</paper-dropdown-menu>
+		</div>
 	</template>
 	<script>
 	window.addEventListener('WebComponentsReady', function(e) {
@@ -69,12 +87,16 @@ paper-button.indigo {
 			ready: function() {
 				this.characterList = characterList; 
 				this.colourList = [0,1,2,3,4,5];
+				this.flagList = flagList;
 				this.tag = '';
 				this.score = 0;
 				this.character = '';
 				this.colour = 0;
+				this.tmTag = '';
 				this.tmCharacter = 0;
-				this.tmColour = 5;
+				this.tmColour = 2;
+				this.flag = 5;
+				this.tmFlag = 1;
 			},
 			getTag: function() {
 				return this.tag;
@@ -91,6 +113,9 @@ paper-button.indigo {
 			getCharacter: function() {
 				return this.character;
 			},
+			getTeamMateTag: function () {
+				return this.tmTag;
+			},
 			getTeamMateCharacter: function () {
 				return this.tmCharacter;
 			},
@@ -106,6 +131,12 @@ paper-button.indigo {
 			setColour: function (colour) {
 				this.colour = colour;
 			},
+			getFlag: function () {
+				return this.flag;
+			},
+			getTeamMateFlag: function () {
+				return this.tmFlag;
+			}
 		});
 	});
 	</script>

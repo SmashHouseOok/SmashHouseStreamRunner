@@ -6,33 +6,34 @@
 .ctag {
     font-family: bebasKai;
     font-size: 35px;
-    color: white;
+    color: black;
+    text-align: center;
 }
 
 .twitter {
     font-family: bebasKai;
     font-size: 30px;
-    color: #66ffff;
-    position: absolute;
-    left: 5px;
+    color: lightskyblue;
+    text-align: center;
+    padding: 7px;
 }
 
 .commentator1{
     position: fixed;    
-    top: 555px;
-    left: 330px;
+    top: 615px;
+    left: 250px;
     height: 110px;
-    width: 270px;
-    white-space: nowrap;
+    width: 335px;
+    /*white-space: nowrap;*/
 }
 
 .commentator2{
     position: fixed;    
-    top: 555px;
-    left: 605px;
+    top: 615px;
+    left: 695px;
     height: 110px;
-    width: 270px;
-    white-space: nowrap;
+    width: 335px;
+    /*white-space: nowrap;*/
 }
 
 .board {

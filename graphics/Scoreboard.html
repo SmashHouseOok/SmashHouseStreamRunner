@@ -3,12 +3,14 @@
     <link href="css/fonts.css" rel="stylesheet"/>
 	<link href="css/Scoreboard.css" rel="stylesheet"/>
     <link href="css/spritesheets/characterIcons.css" rel="stylesheet"/>
+    <link href="css/spritesheets/flags.css" rel="stylesheet"/>
 
 	<script src="components/jquery/dist/jquery.min.js"></script>
 	<script src="js/Scoreboard.js"></script>
     <script src="js/Commentators.js"></script>
     <script src="js/animations/scoreboard.js"></script>
     <script src="js/spritesheets/charactericons.js"></script>
+    <script src="js/spritesheets/flags.js"></script>
 </head>
 <body>
 	<div id="SBtext">
@@ -36,7 +38,14 @@
     <canvas id="p1TMchar" width="24" height="24"></canvas> 
     <canvas id="p2char" width="24" height="24"></canvas> 
     <canvas id="p2TMchar" width="24" height="24"></canvas> 
-    <img src="img/spritesheets/characterIcons.png" onload="charIconsSSLoaded()" id = charIconsSS> 
-    <img src="img/scoreboard/scoreboard.png" id = SB class="board" style="width:1280px;height:720px;">
+
+    <canvas id="p1flag" width="40" height="28"></canvas>
+    <canvas id="p1TMflag" width="40" height="28"></canvas> 
+    <canvas id="p2flag" width="40" height="28"></canvas> 
+    <canvas id="p2TMflag" width="40" height="28"></canvas> 
+
+    <img src="img/spritesheets/characterIcons.png" onload="charIconsSSLoaded()" id = charIconsSS>
+    <img src="img/spritesheets/flags.png" onload="flagsSSLoaded()" id = flagsSS>
+
 </body>
 </html>
