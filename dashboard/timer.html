@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
+	<script src="components/jquery/dist/jquery.min.js"></script>
+
+	<link rel="import" href="components/polymer/polymer.html">
+	<link rel="import" href="components/paper-input/paper-input.html">
+	<link rel="import" href="components/paper-dropdown-menu/paper-dropdown-menu.html">
+	<link rel="import" href="components/paper-menu/paper-menu.html">
+	<link rel="import" href="components/paper-item/paper-item.html">
+	<link rel="import" href="components/paper-button/paper-button.html">
+	<link rel="import" href="components/iron-flex-layout/classes/iron-flex-layout.html">
+</head>
+<body>
+<style>
+paper-button.indigo {
+    background-color: #2D4E8A;
+    color: white;
+}
+</style>
+<dom-module name="sh-timer">
+	<template>
+		<paper-input label="Countdown" value="{{countdown}}"></paper-input>
+	</template>
+	<script>
+	window.addEventListener('WebComponentsReady', function(e) {
+		Polymer({
+			is: 'sh-timer',
+			ready: function(){
+				this.countdown = '00:50:00';
+			},
+			getRoundName: function() {
+				return this.countDown;
+			}
+		});
+	});
+	</script>
+</dom-module>
+
+<sh-timer id="timer"></sh-timer>
+
+<div class="layout horizontal">
+    
+	<paper-button raised class="indigo flex" id="timer-update" style="width: 100%">Start/Stop</paper-button>
+</div>
+
+<script src="js/timer.js"></script>
+
+</body>
+</html>

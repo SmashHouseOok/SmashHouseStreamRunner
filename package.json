@@ -32,6 +32,13 @@
         "width": 4,
         "file": "Commentators.html",
         "headerColor": "#9f9bbd"
+      },
+      {
+        "name": "Timer",
+        "title": "Timer",
+        "width": 3,
+        "file": "Timer.html",
+        "headerColor": "#9f9bbd"
       }
     ],
     "graphics": [
@@ -49,6 +56,11 @@
         "file": "Doubles.html",
         "width": 1280,
         "height": 720
+      }, 
+      {
+        "file": "timer.html",
+        "width": 200,
+        "height": 100
       }
     ]
   },
