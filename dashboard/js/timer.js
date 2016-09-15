@@ -3,21 +3,38 @@
 	window.addEventListener('WebComponentsReady', function(e) {
 		var $update = $('#timer-update');
 
-        var timeString = nodecg.Replicant('timeString');
+        var timeReplicant = nodecg.Replicant('timeString');
 
         var timer,
+            timeString,
             timeInSeconds;
 
+        function makeTwoDigitString(number){
+            var result = ''
+            if(number < 10) {
+                result = "0" + number;
+            } else {
+                result = number;
+            }
+
+            return result;
+        }
 
         function timeLoop(){
-            timeInSeconds --;
-            
-            var hours = parseInt( timeInSeconds / 3600 ) % 24;
-            var minutes = parseInt( timeInSeconds / 60 ) % 60;
-            var seconds = timeInSeconds % 60;
+            if (timeInSeconds > 0 ) {
+                timeInSeconds --;
+            }
+
+            var hours = makeTwoDigitString(parseInt( timeInSeconds / 3600 ) % 24);
+            var minutes = makeTwoDigitString(parseInt( timeInSeconds / 60 ) % 60);
+            var seconds = makeTwoDigitString(timeInSeconds % 60);
 
             var result = '' + hours + ':' + minutes + ':' + seconds;
             document.querySelector('#timer').countdown = result;
+            timeReplicant.value = {
+                'timeRemaining': result
+            };
+            console.log(timeReplicant.value);
         }
 
         function startTimer(){
@@ -41,6 +58,7 @@
             }
             else {
                 timeString = document.querySelector('#timer').countdown;
+                timeReplicant.value = timeString;
                 setTimeInt();
             }
 		});
